@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "iADW+/ypP+8=",
+  "success": true,
+  "projectFilePath": "D:\\UrbanPulse_App\\UrbanPulse.Core\\UrbanPulse.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dennys\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
