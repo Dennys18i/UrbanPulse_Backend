@@ -15,3 +15,4 @@ D:\UrbanPulse_App\UrbanPulse.Infrastructure\obj\Debug\net8.0\refint\UrbanPulse.I
 D:\UrbanPulse_App\UrbanPulse.Infrastructure\obj\Debug\net8.0\UrbanPulse.Infrastructure.pdb
 D:\UrbanPulse_App\UrbanPulse.Infrastructure\obj\Debug\net8.0\UrbanPulse.Infrastructure.genruntimeconfig.cache
 D:\UrbanPulse_App\UrbanPulse.Infrastructure\obj\Debug\net8.0\ref\UrbanPulse.Infrastructure.dll
+D:\UrbanPulse_App\UrbanPulse.Infrastructure\obj\Debug\net8.0\UrbanPulse.Infrastructure.sourcelink.json

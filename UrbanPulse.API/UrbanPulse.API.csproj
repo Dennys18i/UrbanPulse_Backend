@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\UrbanPulse.Core\UrbanPulse.Core.csproj" />
     <ProjectReference Include="..\UrbanPulse.Infrastructure\UrbanPulse.Infrastructure.csproj" />
   </ItemGroup>
