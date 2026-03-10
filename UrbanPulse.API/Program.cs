@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using UrbanPulse.API.Hubs;
 using UrbanPulse.Core.Interfaces;
 using UrbanPulse.Core.Services;
 using UrbanPulse.Infrastructure.Data;
 using UrbanPulse.Infrastructure.Repositories;
+
 
 namespace UrbanPulse_Backend
 {
@@ -29,7 +31,8 @@ namespace UrbanPulse_Backend
                 {
                     policy.WithOrigins("http://localhost:3000", "http://localhost:5173")
                           .AllowAnyHeader()
-                          .AllowAnyMethod();
+                          .AllowAnyMethod()
+                          .AllowCredentials();
                 });
             });
 
@@ -39,6 +42,11 @@ namespace UrbanPulse_Backend
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IAuthService, AuthService>();
+            builder.Services.AddScoped<IEventRepository, EventRepository>();
+            builder.Services.AddScoped<IEventService, EventService>();
+
+            // SignalR
+            builder.Services.AddSignalR();
 
             // JWT
 
@@ -96,11 +104,13 @@ namespace UrbanPulse_Backend
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseCors("AllowFrontend");
             app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();
+            app.UseStaticFiles();
+            app.MapHub<EventHub>("/hubs/events");
 
             app.Run();
         }

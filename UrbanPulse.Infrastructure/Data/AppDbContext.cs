@@ -8,6 +8,7 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<Event> Events { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -19,6 +20,14 @@ public class AppDbContext : DbContext
             entity.Property(u => u.Email).IsRequired().HasMaxLength(255);
             entity.Property(u => u.PasswordHash).IsRequired();
             entity.Property(u => u.Role).HasDefaultValue("User");
+        });
+
+        modelBuilder.Entity<Event>(entity =>
+        {
+            entity.Property(e => e.Description).IsRequired().HasMaxLength(1000);
+            entity.HasOne(e => e.CreatedByUser)
+                  .WithMany()
+                  .HasForeignKey(e => e.CreatedByUserId);
         });
     }
 }

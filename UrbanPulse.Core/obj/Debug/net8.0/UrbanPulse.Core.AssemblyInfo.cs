@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UrbanPulse.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+001128f04f96598b5f52cc625ff5f42c6505af76")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c3f04d092e72f3c9fe9353c21fe3b14b771fc97")]
 [assembly: System.Reflection.AssemblyProductAttribute("UrbanPulse.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UrbanPulse.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
