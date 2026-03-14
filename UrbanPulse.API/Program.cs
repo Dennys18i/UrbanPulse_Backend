@@ -44,6 +44,7 @@ namespace UrbanPulse_Backend
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IEventRepository, EventRepository>();
             builder.Services.AddScoped<IEventService, EventService>();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             // SignalR
             builder.Services.AddSignalR();

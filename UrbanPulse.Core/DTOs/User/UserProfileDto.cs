@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UrbanPulse.Core.Entities
+namespace UrbanPulse.Core.DTOs.User
 {
-    public class User : BaseEntity
+    public class UserProfileDto
     {
+        public int Id { get; set; }
         public string Email { get; set; } = string.Empty;
-        public string PasswordHash { get; set; } = string.Empty;
-        public string Role { get; set; } = "User";
-        public bool IsActive { get; set; } = true;
         public string? FullName { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Address { get; set; }
         public string? Bio { get; set; }
-        public string? Skills { get; set; }
-        public string? Tools { get; set; }
+        public List<string> Skills { get; set; } = new();
+        public List<string> Tools { get; set; } = new();
+        public string Role { get; set; } = string.Empty;
+        public DateTime CreatedAt { get; set; }
     }
 }

@@ -13,5 +13,7 @@ namespace UrbanPulse.Core.Interfaces
         Task<User?> GetByIdAsync(int id);
         Task AddAsync(User user);
         Task<bool> ExistsAsync(string email);
+        Task DeleteAsync(User user);
+        Task UpdateAsync(User user);
     }
 }
