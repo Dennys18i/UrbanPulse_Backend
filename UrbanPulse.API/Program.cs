@@ -8,14 +8,18 @@ using UrbanPulse.Core.Services;
 using UrbanPulse.Infrastructure.Data;
 using UrbanPulse.Infrastructure.Repositories;
 
-
 namespace UrbanPulse_Backend
 {
     public class Program
     {
         public static void Main(string[] args)
         {
+            DotNetEnv.Env.Load();
+
             var builder = WebApplication.CreateBuilder(args);
+
+            var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING")
+                ?? builder.Configuration.GetConnectionString("Default");
 
             // Controllers
             builder.Services.AddControllers();
@@ -36,8 +40,9 @@ namespace UrbanPulse_Backend
                 });
             });
 
+            // DB
             builder.Services.AddDbContext<AppDbContext>(opt =>
-                opt.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+                opt.UseNpgsql(connectionString));
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<ITokenService, TokenService>();
@@ -48,8 +53,6 @@ namespace UrbanPulse_Backend
 
             // SignalR
             builder.Services.AddSignalR();
-
-            // JWT
 
             builder.Services.AddSwaggerGen(options =>
             {
@@ -79,6 +82,7 @@ namespace UrbanPulse_Backend
                 });
             });
 
+            // JWT
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
